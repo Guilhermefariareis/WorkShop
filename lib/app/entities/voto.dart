@@ -2,12 +2,14 @@ import 'dart:convert';
 
 class Voto {
   final int idVoto;
+  final int id;
   final int idade;
   final String cidade;
   final String uf;
 
   Voto({
     required this.idVoto,
+    required this.id,
     required this.idade,
     required this.cidade,
     required this.uf,
@@ -16,6 +18,7 @@ class Voto {
   Map<String, dynamic> toMap() {
     return {
       'idVoto': idVoto,
+      'id': id,
       'idade': idade,
       'cidade': cidade,
       'uf': uf,
@@ -25,6 +28,7 @@ class Voto {
   factory Voto.fromMap(Map<String, dynamic> map) {
     return Voto(
       idVoto: map['idVoto']?.toInt() ?? 0,
+      id: map['id']?.toInt() ?? 0,
       idade: map['idade']?.toInt() ?? 0,
       cidade: map['cidade'] ?? '',
       uf: map['uf'] ?? '',

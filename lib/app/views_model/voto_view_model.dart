@@ -3,12 +3,14 @@ import 'dart:convert';
 
 class VotoViewModel {
   int idVoto;
+  int id;
   int idade;
   String cidade;
   String uf;
 
   VotoViewModel({
     required this.idVoto,
+    required this.id,
     required this.idade,
     required this.cidade,
     required this.uf,
@@ -17,6 +19,7 @@ class VotoViewModel {
   Map<String, dynamic> toMap() {
     return {
       'idVoto': idVoto,
+      'id': id,
       'idade': idade,
       'cidade': cidade,
       'uf': uf,
@@ -26,6 +29,7 @@ class VotoViewModel {
   factory VotoViewModel.fromMap(Map<String, dynamic> map) {
     return VotoViewModel(
       idVoto: map['idVoto']?.toInt() ?? 0,
+      id: map['id']?.toInt() ?? 0,
       idade: map['idade']?.toInt() ?? 0,
       cidade: map['cidade'] ?? '',
       uf: map['uf'] ?? '',

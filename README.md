@@ -1,7 +1,9 @@
 create database pesquisa;
 
+# CRIAR A TABELA ELEITOR
+use pesquisa;
 CREATE TABLE IF NOT EXISTS eleitor (
-  id INT NOT NULL AUTO_INCREMENT,
+  id INT  NOT NULL ,
   nome VARCHAR(255) NOT NULL,
   partido TEXT NOT NULL,
   imagem TEXT NULL,
@@ -9,39 +11,37 @@ CREATE TABLE IF NOT EXISTS eleitor (
   PRIMARY KEY (id))
 ENGINE = InnoDB;
 
+# INSERINDO DADOS NA TABELA ELEITOR
+ 
 INSERT INTO eleitor(id, nome, partido, imagem, votos)
-VALUES (null, 'Jair Bolsonaro', 'PL', '/bolsonaro.jpg',0);
+VALUES (1, 'Jair Bolsonaro', 'PL', '/bolsonaro.jpg',0);
 
 INSERT INTO eleitor(id, nome, partido, imagem, votos)
-VALUES (null, 'Lula', 'PT', '/lula.jpg',0);
+VALUES (2, 'Lula', 'PT', '/lula.jpg',0);
 
 INSERT INTO eleitor(id, nome, partido, imagem, votos)
-VALUES (null, 'Ciro Gomes', 'PDT', '/ciro.jpg',0);
+VALUES (3, 'Ciro Gomes', 'PDT', '/ciro.jpg',0);
 
-select * from eleitor;
+#EXIBIR TABELA
+select *from eleitor;
 
-
-
-
-voto
-
+# CRIAR A TABELA VOTO
 use pesquisa;
-CREATE TABLE IF NOT EXISTS voto (
+CREATE TABLE voto (
   idVoto INT NOT NULL AUTO_INCREMENT,
+  id INT (100)NOT NULL ,
   idade int(10) NOT NULL,
   cidade VARCHAR(100) NOT NULL,
   uf VARCHAR(4) NOT NULL,
-  PRIMARY KEY (idVoto))
+  PRIMARY KEY (idVoto),
+  CONSTRAINT fk_id FOREIGN KEY (id) REFERENCES eleitor(id))
 ENGINE = InnoDB;
 
-INSERT INTO voto(idVoto, idade, cidade, uf)
-VALUES (null, 20, 'Ribeirao Preto', 'SP');
 
-INSERT INTO voto(idVoto, idade, cidade, uf)
-VALUES (null, 24, 'Ribeirao Preto', 'SP');
-
-INSERT INTO voto(idVoto, idade, cidade, uf)
-VALUES (null, 10, 'Ribeirao Preto', 'SP');
+# INSERIR VOTO NA TABELA
+INSERT INTO voto(idVoto, id, idade, cidade, uf)
+VALUES (null, 1, 10,'Ribeirao Preto', 'SP');
 
 
-select * from voto;
+# EXIBIR TABELA
+select *from pesquisa.voto;

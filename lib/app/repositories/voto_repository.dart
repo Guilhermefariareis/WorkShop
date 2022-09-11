@@ -11,9 +11,9 @@ class VotoRepository {
       conn = await Database().openConnection();
       await conn.transaction((_) async {
         final votoResult = await conn!.query('''
-           INSERT INTO voto(idVoto, idade, cidade, uf)
-            values(?, ?, ?, ?)
-          ''', [voto.idVoto, voto.idade, voto.cidade, voto.uf]);
+           INSERT INTO voto(idVoto, id, idade, cidade, uf)
+            values(?, ?, ?, ?, ?)
+          ''', [voto.idVoto, voto.id, voto.idade, voto.cidade, voto.uf]);
         //   final orderId = await conn.query('select * from voto');
         //   final result = await conn.query('select * from eleitor');
       });
