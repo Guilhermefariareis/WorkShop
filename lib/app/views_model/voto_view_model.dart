@@ -1,4 +1,3 @@
-import 'voto_list_view_model.dart';
 import 'dart:convert';
 
 class VotoViewModel {

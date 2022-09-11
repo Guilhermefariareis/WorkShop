@@ -14,8 +14,6 @@ class VotoRepository {
            INSERT INTO voto(idVoto, id, idade, cidade, uf)
             values(?, ?, ?, ?, ?)
           ''', [voto.idVoto, voto.id, voto.idade, voto.cidade, voto.uf]);
-        //   final orderId = await conn.query('select * from voto');
-        //   final result = await conn.query('select * from eleitor');
       });
       return VoteIdResponse;
     } on MySqlException catch (e, s) {
