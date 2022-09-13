@@ -24,7 +24,7 @@ class VotoController {
         },
       );
     } catch (e, s) {
-      log('Erro ao inserir o voto', error: e, stackTrace: s);
+      log('Erro ao inserir', error: e, stackTrace: s);
       return Response.internalServerError();
     }
   }
