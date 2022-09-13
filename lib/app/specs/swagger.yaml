@@ -1,0 +1,43 @@
+openapi: 3.0.0
+info:
+  description: "API do backend"
+  version: "1.0.0"
+  title: " Backend"
+servers:
+  - url: http://localhost:8080
+    description: Local server
+    
+tags:
+- name: "Eleicao"
+  description: "Enquete Eleitoral"
+  
+paths:
+  /voto/:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:      # Request body contents
+             # type: object
+              properties:
+                idVoto:
+                  type: integer
+                id:
+                  type: integer
+                idade:
+                  type: string
+                cidade:
+                  type: string
+                uf:
+                  type: string
+              example:   # Sample object
+                idVoto: 0
+                id: 1
+                idade: 26
+                cidade: cidade               
+                uf: sp
+      responses:
+        '200':
+          description: OK    
+
+
